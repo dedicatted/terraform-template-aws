@@ -65,11 +65,6 @@ variable "kub_irsa_enable" {
   description = "True or False to enable or disable IRSA"
 }
 
-variable "service_account_name" {
-  default     = "albc"
-  description = "Your service account name for Kubernetes"
-}
-
 variable "service_account_namespace" {
   default     = "kube-system"
   description = "Your namespace for Service Account in Kubernetes"
@@ -79,4 +74,9 @@ variable "helm_albc_timeout" {
   type        = number
   default     = 400
   description = "Max timeout value for Helm chart AWS ALB Controller"
+}
+
+variable "alb_controller_name" {
+  default     = "aws-load-balancer-controller"
+  description = "Default name for ALB Controller role, etc."
 }

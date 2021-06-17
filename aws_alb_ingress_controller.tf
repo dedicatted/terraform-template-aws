@@ -6,7 +6,7 @@
 resource "kubectl_manifest" "targetgroupbinding" {
   yaml_body = data.http.applytargetfroupbinding.body
 
-  depends_on = [module.eks_iam_role]
+  depends_on = [module.iam_assumable_role_admin]
 }
 
 # Helm install for AWS ALB ingress controll
@@ -18,30 +18,16 @@ resource "helm_release" "aws_ingress" {
   wait       = true
   timeout    = var.helm_albc_timeout
 
-  set {
-    name  = "clusterName"
-    value = var.cluster_name
-  }
-
-  set {
-    name  = "serviceAccount.create"
-    value = "false"
-  }
-
-  set {
-    name  = "region"
-    value = var.aws_region
-  }
-
-  set {
-    name  = "vpcId"
-    value = module.vpc.vpc_id
-  }
-
-  set {
-    name  = "serviceAccount.name"
-    value = var.service_account_name
-  }
+  values = [<<EOF
+clusterName: ${var.cluster_name}
+region: ${var.aws_region}
+serviceAccount:
+  create: true
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.alb_controller_name}
+  vpcId: ${module.vpc.vpc_id}
+EOF
+  ]
 
   depends_on = [kubectl_manifest.targetgroupbinding]
 }
