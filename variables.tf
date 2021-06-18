@@ -1,26 +1,6 @@
 ########################
-#### Variable values ###
+#### Variables       ###
 ########################
-
-variable "cluster_name" {
-  default     = "TestCluster"
-  description = "Your Kubernetes Cluster Name"
-}
-
-variable "vpc_name" {
-  default     = "TestVPC"
-  description = "Your VPC Name"
-}
-
-variable "cluster_version" {
-  default     = "1.19"
-  description = "Kubernetes Version"
-}
-
-variable "aws_region" {
-  default     = "eu-west-1"
-  description = "Your AWS Region"
-}
 
 variable "aws_secret_access_key" {
   default     = ""
@@ -32,55 +12,37 @@ variable "aws_secret_shared_key" {
   description = "Your AWS secret shared key"
 }
 
-variable "kub_user_arn" {
-  default     = "arn:aws:iam:::user/"
-  description = "AWS User ARN"
+variable "cluster_name" {
+  default     = "TestCluster"
+  description = "Your Kubernetes Cluster Name"
 }
 
-variable "kub_user_name" {
+variable "aws_kub_version" {
+  type = string
+  default = "1.19"
+  description = "Define your Kubernetes Version (default is 1.19)"
+}
+
+variable "irsa_enable" {
+  default = true
+  description = "Choose between True (yes) or False (not) "
+}
+
+variable "user_iam_name" {
+  default     = "george"
+  description = "Your IAM user"
+}
+
+variable "user_iam_arn" {
   default     = ""
-  description = "AWS Account Name"
+  description = "Your user IAM arn"
 }
 
-variable "kub_groups" {
-  default     = "system:masters"
-  description = "User Groups"
-}
-
-variable "kub_instance_type" {
-  default      = "t2.medium"
-  description = "Instalnce's type of Kubernetes Nodes"
-}
-
-variable "kub_asg_max_size" {
-  type        = number
-  default     = 1
-  description = "Auto-Scaling group max size"
-}
-
-variable "kub_asg_min_size" {
-  type        = number
-  default     = 1
-  description = "Auto-Scaling group min size"
-}
-
-variable "kub_irsa_enable" {
-  default     = true
-  description = "True or False to enable or disable IRSA"
-}
-
-variable "service_account_namespace" {
-  default     = "kube-system"
-  description = "Your namespace for Service Account in Kubernetes"
-}
-
-variable "helm_albc_timeout" {
-  type        = number
-  default     = 400
-  description = "Max timeout value for Helm chart AWS ALB Controller"
-}
-
-variable "alb_controller_name" {
+variable "alb_iam_role_name" {
   default     = "aws-load-balancer-controller"
-  description = "Default name for ALB Controller role, etc."
+  description = "The name for aws load balancer controller"
 }
+
+
+
+

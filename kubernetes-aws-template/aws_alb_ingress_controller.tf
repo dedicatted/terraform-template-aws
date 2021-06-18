@@ -15,9 +15,9 @@ resource "helm_release" "aws_ingress" {
   name       = "aws-load-balancer-controller"
   repository = "https://aws.github.io/eks-charts"
   chart      = "aws-load-balancer-controller"
-  namespace  = var.service_account_namespace
+  namespace  = var.sa_namespace
   wait       = true
-  timeout    = var.helm_albc_timeout
+  timeout    = var.helm_timeout
 
   values = [<<EOF
 clusterName: ${var.cluster_name}
@@ -25,7 +25,7 @@ region: ${var.aws_region}
 serviceAccount:
   create: true
   annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.alb_controller_name}
+    eks.amazonaws.com/role-arn: arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.iam_alb_role_name}
   vpcId: ${module.vpc.vpc_id}
 EOF
   ]

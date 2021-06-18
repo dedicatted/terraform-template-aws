@@ -4,6 +4,8 @@
 ####################################################
 
 resource "kubectl_manifest" "game-2048-namespace" {
+  count = var.install_2048_game ? 1 : 0
+
   yaml_body = <<YAML
 apiVersion: v1
 kind: Namespace
@@ -16,6 +18,8 @@ YAML
 }
 
 resource "kubectl_manifest" "game-2048-deployment" {
+  count = var.install_2048_game ? 1 : 0
+
   yaml_body =<<YAML
 apiVersion: apps/v1
 kind: Deployment
@@ -45,6 +49,8 @@ YAML
 }
 
 resource "kubectl_manifest" "game-2048-service" {
+  count = var.install_2048_game ? 1 : 0
+
   yaml_body =<<YAML
 apiVersion: v1
 kind: Service
@@ -66,6 +72,8 @@ YAML
 }
 
 resource "kubectl_manifest" "game-2048-ingress" {
+  count = var.install_2048_game ? 1 : 0
+
   yaml_body =<<YAML
 apiVersion: extensions/v1beta1
 kind: Ingress
