@@ -1,3 +1,7 @@
+########################
+#### Variable values ###
+########################
+
 variable "cluster_name" {
   default     = "TestCluster"
   description = "Your Kubernetes Cluster Name"
@@ -29,7 +33,7 @@ variable "aws_secret_shared_key" {
 }
 
 variable "kub_user_arn" {
-  default     = ""
+  default     = "arn:aws:iam:::user/"
   description = "AWS User ARN"
 }
 

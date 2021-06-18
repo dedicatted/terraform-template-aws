@@ -1,3 +1,7 @@
+###############################
+#### Getting fresh data     ###
+###############################
+
 data "aws_region" "current" {}
 
 data "aws_eks_cluster" "cluster" {

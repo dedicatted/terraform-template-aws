@@ -1,5 +1,5 @@
 ###########################################
-###...Creation Kubernetes Cluster
+### Kubernetes Cluster. Step 2          ###
 ###########################################
 
 module "kubcluster" {

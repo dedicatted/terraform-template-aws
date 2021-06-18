@@ -1,10 +1,11 @@
-######################################
-###... EKS manual script jobs
-######################################
+#########################################
+### TargetGroupBinding     Deployment ###
+### AWS Ingress Controller Deployment ###
+#########################################
 
 # Create ServiceAccount AWS ALB controlle and attach it with kubernetes cluster
 resource "kubectl_manifest" "targetgroupbinding" {
-  yaml_body = data.http.applytargetfroupbinding.body
+  yaml_body  = data.http.applytargetfroupbinding.body
 
   depends_on = [module.iam_assumable_role_admin]
 }

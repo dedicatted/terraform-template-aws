@@ -1,5 +1,5 @@
 #############################################
-### ...Creation IAM policy for ALB controller
+### AIM Policy & Role. Step #3            ###
 #############################################
 
 resource "aws_iam_policy" "AWSLoadBalancerController" {
