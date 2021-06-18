@@ -3,7 +3,7 @@
 ### AWS Ingress Controller Deployment ###
 #########################################
 
-# Create ServiceAccount AWS ALB controlle and attach it with kubernetes cluster
+# Create ServiceAccount AWS ALB controller and attach it with Kubernetes cluster
 resource "kubectl_manifest" "targetgroupbinding" {
   yaml_body  = data.http.applytargetfroupbinding.body
 

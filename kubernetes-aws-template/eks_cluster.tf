@@ -2,7 +2,7 @@
 ### Kubernetes Cluster. Step 2          ###
 ###########################################
 
-module "kubcluster" {
+module "kubecluster" {
   source                          = "terraform-aws-modules/eks/aws"
   cluster_name                    = var.cluster_name
   cluster_version                 = var.kubernetes_version

@@ -1,6 +1,6 @@
 ####################################################
-###    Game-2048 Deployment                      ###
-### For Test ingress controller                  ###
+###    Example Deployment                        ###
+###    game-2048                                 ###
 ####################################################
 
 resource "kubectl_manifest" "game-2048-namespace" {
