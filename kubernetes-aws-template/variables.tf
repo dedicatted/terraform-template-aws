@@ -63,6 +63,7 @@ variable "iam_user_name" {
 }
 
 variable "iam_user_arn" {
+  default     = "arn:aws:iam:::user/"
   type        = string
   description = "Your user IAM arn"
 }
