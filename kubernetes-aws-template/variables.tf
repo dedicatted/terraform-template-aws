@@ -1,7 +1,3 @@
-########################
-#### Variables       ###
-########################
-
 variable "aws_region" {
   type        = string
   description = "Your AWS Region"
