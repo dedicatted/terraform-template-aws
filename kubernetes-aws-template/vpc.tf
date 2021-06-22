@@ -1,6 +1,6 @@
-#########################
-###...Creation VPC/subnets for Kubernetes Cluster
-#########################
+###########################################
+### VPC for Kubernetes Cluster. Step #1 ###
+###########################################
 
 data "aws_availability_zones" "this" {}
 

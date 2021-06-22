@@ -1,3 +1,7 @@
+###############################
+### Terraform Output values ###
+###############################
+
 output "vpc_id" {
   value       = module.vpc.vpc_id
   description = "VPC ID"
@@ -19,6 +23,6 @@ output "aws_region" {
 }
 
 output "kubernetes_cluster_name" {
-  value       = module.kubcluster.cluster_id
+  value       = module.kubecluster.cluster_id
   description = "Kubernetes Cluster name"
 }
