@@ -7,7 +7,7 @@ module "kubernetes-aws-template" {
   irsa_enable          = true
   sa_namespace         = "kube-system"
   iam_user_name        = "george"
-  iam_user_arn         = "arn:aws:iam::609478623517:user/george"
+  iam_user_arn         = "arn:aws:iam:::user"
   kub_irsa_enable      = true
   kub_instance_type    = "t2.medium"
   kub_asg_min_size     = 1
